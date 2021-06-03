@@ -1,0 +1,156 @@
+server {
+    listen 		8080;
+	server_name	testing.ru www.testing.ru;
+
+	error_page  400 401 404 405 408 413 /4xx.html;
+
+	location = /4xx.html {
+		root	./content/error/4xx;
+	}
+
+	error_page	500 501 /50x.html;
+
+	location = /50x.html {
+		root	./content/error/50x;
+	}
+
+    location /	{
+		methods	    GET;
+        root	    ./content;
+		index	    index.html;
+		cgi			.bla;
+		cgi_path    ./content/cgi_tester;
+		autoindex	off;
+    }
+
+    location /put_test	{
+		methods		PUT;
+		root 		./content;
+	}
+
+    location /post_body	{
+		methods		POST;
+		root 		./content;
+		index 		post.html;
+		max_body	100;
+	}
+
+    location /directory	{
+		methods		GET,POST;
+		root 		./content/YoupiBanane;
+		cgi			.bla;
+		index 		youpi.bad_extension;
+		cgi_path    ./content/cgi_tester;
+	}
+
+	location /auth/	{
+		methods	    GET;
+		index		auth.html, harryp_webfont.woff, harryp_webfont.woff2, hp_chamber.jpeg;
+		root 		./content/auth;
+		auth 		user:cGFzcw==;
+		auth		new:Z2FtZQ==;
+	}
+
+	location /photo {
+		methods		GET;
+		root		./content/photo;
+		index		cwindom.jpeg, mskinner.jpeg, rmanfred.jpeg, telegram01.jpeg;
+	}
+
+	location /content {
+		methods		GET;
+		root		./content;
+		index		harryp_webfont.woff, harryp_webfont.woff2;
+	}
+
+	location /50x/error_images {
+		methods		GET;
+		root		./content/error/50x/error_images;
+		index		error_500.jpeg, error_image.jpeg;
+	}
+
+	location /4xx/error_images {
+		methods		GET;
+		root		./content/error/4xx/error_images;
+		index		error_400.png, error_401.png, error_404.jpeg, error_image.jpeg;
+	}
+}
+
+server {
+    listen 		8000;
+	listen 		0.0.0.0:8000;
+	server_name	webserv.com www.webserv.com;
+
+	error_page  400 401 404 405 408 413 /4xx.html;
+
+	location = /4xx.html {
+		root	./content/error/4xx;
+	}
+
+	error_page	500 501 /50x.html;
+
+	location = /50x.html {
+		root	./content/error/50x;
+	}
+
+    location /	{
+		methods	    GET;
+        root	    ./content;
+		index	    index.html;
+		cgi			.bla;
+		cgi_path    ./content/cgi_tester;
+    }
+
+    location /directory	{
+		methods		GET,POST;
+		root 		./content/YoupiBanane;
+		cgi			.bla;
+		index 		youpi.bad_extension;
+		cgi_path    ./content/cgi_tester;
+	}
+
+	location /autoindex	{
+		methods		GET,POST,HEAD,PUT;
+        root    	./content;
+		index		index.html;
+		autoindex	on;
+    }
+
+    location /no_autoindex	{
+		methods		GET,POST,HEAD,PUT;
+        root    	./content;
+		index		index.html;
+		autoindex	off;
+    }
+
+	location /photo {
+		methods		GET;
+		root		./content/photo;
+		index		directory.html, cwindom.jpeg, mskinner.jpeg, rmanfred.jpeg, telegram01.jpeg;
+		autoindex	off;
+	}
+
+	location /content {
+		methods		GET;
+		root		./content;
+		index		harryp_webfont.woff, harryp_webfont.woff2;
+	}
+
+	location /50x/error_images {
+		methods		GET;
+		root		./content/error/50x/error_images;
+		index		error_500.jpeg, error_image.jpeg;
+	}
+
+	location /4xx/error_images {
+		methods		GET;
+		root		./content/error/4xx/error_images;
+		index		error_400.png, error_401.png, error_404.jpeg, error_image.jpeg;
+	}
+	location /error {
+		methods		GET;
+		root		./content/error;
+		index		directory.html;
+		autoindex	on;
+	}
+}

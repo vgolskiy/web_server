@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>Webserv</title>
+		<style>
+			html { 
+  				background: url('/photo/telegram01.jpeg') no-repeat center center fixed; 
+  				-webkit-background-size: cover;
+  				-moz-background-size: cover;
+  				-o-background-size: cover;
+  				background-size: cover;
+			}
+			body {
+  				text-align: center;
+				height: 100%;
+  				margin: 0;
+			}
+			.rainbow-text {
+				background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+				-webkit-background-clip: text;
+				color: transparent;
+				animation: rainbow_animation 6s ease-in-out infinite;
+				background-size: 400% 100%;
+			}
+			@keyframes rainbow_animation { 
+				0%,100% { background-position: 0 0; }
+				50% { background-position: 100% 0; }
+			}
+			@font-face {
+				font-family: 'harry_pregular';
+				src: url('/content/harryp_webfont.woff2') format('woff2'),
+				url('/content/harryp_webfont.woff') format('woff');
+				font-weight: normal;
+				font-style: normal;
+			}
+			h1 {
+				font-family: 'harry_pregular', Arial, sans-serif;
+				font-weight:normal;
+				font-style:normal;
+			}
+			text {
+				font-family: 'harry_pregular', Arial, sans-serif;
+				font-weight:normal;
+				font-style:normal;
+				font-size: 45px;			
+			}
+			#gallery li {
+				width:225px;
+				display:inline-block;
+			}
+			#gallery li p {
+				font-family: 'harry_pregular', Arial, sans-serif;
+				font-weight:normal;
+				font-style:normal;
+				margin:10px 0 20px 0;
+			}
+		</style>
+    </head>
+
+    <body>
+        <h1 class="rainbow-text" style="font-size: 70px;">Error404 team presents</h1>
+		<h1 class="rainbow-text" style="font-size: 90px;">Webserv</h1>
+
+		<text>Our team members are pleased to meet you today:</text>
+
+		<ul id="gallery">
+			<li>
+				<a><img src="/photo/rmanfred.jpeg" width="200" height="200" title="RMANFRED" /></a>
+				<p>RMANFRED</p>
+			</li>
+			<li>
+				<a><img src="/photo/cwindom.jpeg" width="200" height="200" title="CWINDOM" /></a>
+				<p>CWINDOM</p>
+			</li>
+			<li>
+				<a><img src="/photo/mskinner.jpeg" width="200" height="200" title="MSKINNER" /></a>
+				<p>MSKINNER</p>
+			</li>
+		</ul>
+	</body>
+</html>
